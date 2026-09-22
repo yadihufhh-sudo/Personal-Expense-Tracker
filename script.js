@@ -1,37 +1,31 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+let total = 0;
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #222;
-  padding: 20px;
-}
+function addExpense() {
+  const nameInput = document.getElementById("expenseName");
+  const amountInput = document.getElementById("expenseAmount");
+  const expenseList = document.getElementById("expenseList");
+  const balance = document.getElementById("balance");
 
-.container {
-  max-width: 600px;
-  margin: 30px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
+  const name = nameInput.value.trim();
+  const amount = Number(amountInput.value);
 
-h1 {
-  text-align: center;
-  margin-bottom: 25px;
-}
+  if (name === "" || amount <= 0) {
+    alert("Please enter a valid expense.");
+    return;
+  }
 
-.balance {
-  text-align: center;
-  background: #f0f7ff;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-}
+  total += amount;
+  balance.textContent = "₹" + total.toFixed(2);
 
-.balance p {
- 
+  const item = document.createElement("li");
+
+  item.innerHTML = `
+    <span>${name}</span>
+    <strong>₹${amount.toFixed(2)}</strong>
+  `;
+
+  expenseList.appendChild(item);
+
+  nameInput.value = "";
+  amountInput.value = "";
+}
