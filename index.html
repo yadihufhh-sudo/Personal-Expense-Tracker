@@ -1,1 +1,36 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Personal Expense Tracker</h1>
+
+    <div class="balance">
+      <h2>Total Balance</h2>
+      <p id="balance">₹0</p>
+    </div>
+
+    <div class="form">
+      <input type="text" id="expenseName" placeholder="Expense name">
+      <input type="number" id="expenseAmount" placeholder="Amount">
+
+      <button onclick="addExpense()">Add Expense</button>
+    </div>
+
+    <h2>Expense History</h2>
+
+    <ul id="expenseList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
